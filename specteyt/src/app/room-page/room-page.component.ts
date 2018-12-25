@@ -11,7 +11,8 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./room-page.component.css']
 })
 export class RoomPageComponent implements OnInit {
-  room;
+  roomId: String;
+  roomName: String;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,9 +25,13 @@ export class RoomPageComponent implements OnInit {
   }
 
   getRoom(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.room = id;
-    console.log("room id: " + id)
+    const id = this.route.snapshot.paramMap.get('id');
+    this.roomId = id;
+    // check if room is valid otherwise redirect user to home page
+
+    // TODO: get roomName so it can be rendered
+    // start listening for updates to the chat/stream
+
   }
 
 }
